@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd-ingress
+  name: test-app-ingress
   namespace: test-app
   # annotations:
     # add an annotation indicating the issuer to use.
