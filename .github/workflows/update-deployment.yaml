@@ -23,5 +23,5 @@ jobs:
           valueFile: ${{ github.event.filePath }}
           propertyPath: ${{ github.event.propertyPath }}
           value: ${{ github.event.propertyValue }}
-          branch: master
           message: 'update ${{ github.event.filePath }} to ${{ github.event.propertyValue }}' 
+          updateFile: true
