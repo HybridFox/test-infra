@@ -1,0 +1,27 @@
+name: Publish Docker image
+on:
+  workflow_dispatch:
+    inputs:
+      filePath:
+        description: 'Path to YAML file to update'
+        required: true
+      propertyPath:
+        description: 'Property path to update'
+        required: true
+      propertyValue:
+        description: 'Property value to update'
+        required: true
+
+jobs:
+  update-deployment:
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update deployment YAML
+        uses: fjogeleit/yaml-update-action@master
+        with:
+          valueFile: ${{ github.event.filePath }}
+          propertyPath: ${{ github.event.propertyPath }}
+          value: ${{ github.event.propertyValue }}
+          branch: master
+          message: 'update ${{ github.event.filePath }} to ${{ github.event.propertyValue }}' 
