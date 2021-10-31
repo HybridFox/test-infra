@@ -17,6 +17,8 @@ jobs:
     name: Update deployment YAML file
     runs-on: ubuntu-latest
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
       - name: Update deployment YAML
         uses: fjogeleit/yaml-update-action@master
         with:
